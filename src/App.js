@@ -30,6 +30,9 @@ function App() {
       console.log("컴포넌트 업데이트!");
     }
   });
+  // useEffect(() => {
+  //   console.log("업데이트 : ", text, count, " / 마운트 될 때도 실행됨");
+  // }, [count, text]);
 
   // 컴포넌트의 마운트 시점에 실행되는 코드
   // useEffect에서 빈 배열을 전달하면 컴포넌트의 마운트 시점에만 콜백 함수를 실행
@@ -44,7 +47,8 @@ function App() {
   //   }, 50000);
   // });
 
-  // 클린업
+  // useEffect의 콜백 함수가 반환하는 함수를 클린업 함수. 콜백 함수를 다시 호출하기 전에 실행
+  // 따라서 컴포넌트를 렌더링할 때 마다 새 인터벌을 생성하고 기존 인터벌은 삭제
   useEffect(() => {
     const intervalID = setInterval(() => {
       console.log("깜빡");
